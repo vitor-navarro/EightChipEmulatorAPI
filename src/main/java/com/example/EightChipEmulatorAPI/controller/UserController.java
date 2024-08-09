@@ -27,7 +27,6 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, path = "", produces = "application/json")
     public List<UserDTO> geAllUsers(){
-        System.out.println("aa");
         return userService.getAllUsers();
     }
 

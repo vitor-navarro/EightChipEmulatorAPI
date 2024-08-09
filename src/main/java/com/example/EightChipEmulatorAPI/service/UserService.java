@@ -17,8 +17,8 @@ public class UserService {
     private UserRepository userRepository;
 
     public UserEntity createUser(UserCreateDTO user) {
+        //TODO validar se 1 ou mais dos dados já foram inseridos
         UserEntity userEntity = new UserEntity(user);
-
         return userRepository.save(userEntity);
     }
 

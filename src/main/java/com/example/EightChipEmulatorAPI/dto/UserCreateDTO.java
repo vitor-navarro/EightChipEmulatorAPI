@@ -6,8 +6,12 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
+@Getter
+@Setter
 public class UserCreateDTO {
     @JsonProperty("id")
     public Integer id;
@@ -17,20 +21,19 @@ public class UserCreateDTO {
     @NotBlank
     public String username;
 
-
     @JsonProperty("password")
     @Size(message = "Password should be longer than 7 caracters", min = 7)
     @NotNull
     public String password;
 
-
     @JsonProperty("email")
     @Email(message = "Email should be valid")
     public String email;
 
-    public UserCreateDTO(){}
+    public UserCreateDTO() {
+    }
 
-    public UserCreateDTO(UserEntity user){
+    public UserCreateDTO(UserEntity user) {
         BeanUtils.copyProperties(user, this);
     }
 }
